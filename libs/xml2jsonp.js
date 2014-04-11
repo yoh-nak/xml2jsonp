@@ -6,7 +6,7 @@ exports.convert = function(req, res){
 
     var testUrl = 'http://wikipedia.simpleapi.net/api?keyword=HTTP&output=xml';
 
-    var api = req.query.api ? req.query.api : testUrl;
+    var api = decodeURIComponent(req.query.api) ? decodeURIComponent(req.query.api) : testUrl;
     var callback = req.query.callback ? req.query.callback : 'callback';
 
     var xml = '';
